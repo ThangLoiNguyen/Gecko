@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: rgb(60, 136, 72);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +15,58 @@
   }
 }
 
+/* Drop down */
+@keyframes drop-down {
+  from {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-drop-down {
+  animation: drop-down .1s ease-out forwards;
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in .3s ease-out forwards;
+}
+
+/* Fade out */
+@keyframes fade-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-30%);
+    opacity: 0;
+  }
+}
+
+.animate-fade-out {
+  animation: fade-out .2s ease-out forwards;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
