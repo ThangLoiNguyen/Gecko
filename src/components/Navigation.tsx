@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import GeckoLogo from '@/assets/Gecko.logo.webp'
 import FlagOfVietnam from '@/assets/flag-of-vietnam.webp'
 import FlagOfEnglish from '@/assets/flag-of-english.webp'
@@ -24,11 +24,6 @@ const Navigation = () => {
   const drop = () => {
     setIsVisibleNavLibrary(!isVisibleNavLibrary)
   };
-  // ActivePage
-  const [isActivePage, setIsActivePage] = useState('/');
-  const activePage = (path: string) => {
-    setIsActivePage(path)
-  }
 
 
   return (
@@ -73,6 +68,9 @@ const Navigation = () => {
         <div className='hidden lg:flex gap-7 w-full items-center justify-end'>
           <a href="/">
             <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Trang chủ</div>
+          </a>
+          <a href="/about">
+            <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Về chúng tôi</div>
           </a>
           <a href="/course">
             <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Khóa học</div>
