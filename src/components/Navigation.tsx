@@ -1,32 +1,41 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GeckoLogo from '@/assets/Gecko.logo.webp'
 import FlagOfVietnam from '@/assets/flag-of-vietnam.webp'
 import FlagOfEnglish from '@/assets/flag-of-english.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 const Navigation = () => {
-  const [isVisible1, setIsVisible1] = useState(false);
+  // VisibleLanguage
+  const [isVisibleLanguage, setIsVisibleLanguage] = useState(false);
   const dropDown = () => {
-    setIsVisible1(!isVisible1);
+    setIsVisibleLanguage(!isVisibleLanguage);
   };
-  const [isVisible2, setIsVisible2] = useState(false);
+  // isVisibleNav
+  const [isVisibleNavShow, setIsVisibleNavShow] = useState(false);
   const fade = () => {
-    setIsVisible2(true)
+    setIsVisibleNavShow(true)
   };
   const hide = () => {
-    setIsVisible2(!isVisible2)
+    setIsVisibleNavShow(!isVisibleNavShow)
   };
-  const [isVisible3, setIsVisible3] = useState(false);
+  // VisibleNavLibrary
+  const [isVisibleNavLibrary, setIsVisibleNavLibrary] = useState(false);
   const drop = () => {
-    setIsVisible3(!isVisible3)
+    setIsVisibleNavLibrary(!isVisibleNavLibrary)
   };
+  // ActivePage
+  const [isActivePage, setIsActivePage] = useState('/');
+  const activePage = (path: string) => {
+    setIsActivePage(path)
+  }
+
 
   return (
     <nav className='sticky shadow-md flex justify-between items-center h-24 px-3 top-0 z-50 bg-white select-none'>
       <FontAwesomeIcon icon={faBars} onClick={fade} className='lg:hidden flex h-8 justify-center cursor-pointer hover:text-[--primary-color]' />
       {/* Navigation mobile-screen */}
-      {isVisible2 && (
+      {isVisibleNavShow && (
         <div className=' absolute left-0 top-0 h-screen w-full bg-black/50'>
           <div className=' absolute left-0 top-0 h-screen w-1/2 bg-white p-8 animate-fade-in'>
             <FontAwesomeIcon icon={faXmark} className=' text-3xl mb-10 hover:text-red-500 cursor-pointer' onClick={hide} />
@@ -41,15 +50,15 @@ const Navigation = () => {
                   <span className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-1'>Thư viện</span>
                   <FontAwesomeIcon icon={faAngleDown} className=' text-sm' />
                 </div>
-                {isVisible3 && (
-                <ul className='ml-4'>
-                  <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
-                    <a href="/library/photoLibrary">Thư viện ảnh</a>
+                {isVisibleNavLibrary && (
+                  <ul className='ml-4'>
+                    <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
+                      <a href="/library/photoLibrary">Thư viện ảnh</a>
                     </li>
-                  <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
-                    <a href="">Thư viện tài liệu</a>
+                    <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
+                      <a href="/library/documentLibrary">Thư viện tài liệu</a>
                     </li>
-                </ul>
+                  </ul>
                 )}
               </div>
             </div>
@@ -63,13 +72,10 @@ const Navigation = () => {
         {/* Navigation full-screen */}
         <div className='hidden lg:flex gap-7 w-full items-center justify-end'>
           <a href="/">
-            <div className='cursor-pointer relative gap-2 text-base font-semibold text-[--primary-color]'>Trang chủ</div>
-          </a>
-          <a href="/about">
-            <div className='cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'>Về chúng tôi</div>
+            <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Trang chủ</div>
           </a>
           <a href="/course">
-            <div className='cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'>Khóa học</div>
+            <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Khóa học</div>
           </a>
           <a href="/contact">
             <div className='cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'>Liên hệ</div>
@@ -81,9 +87,11 @@ const Navigation = () => {
             <p className='group-hover:text-[--primary-color]'>Thư viện</p>
             <FontAwesomeIcon icon={faAngleDown} className='h-2 w-2 ml-1 translate-y-2' />
             <span className='absolute h-10 w-20 right-0'></span>
-            <div className='absolute min-w-48 bg-white right-0 top-10 hidden group-hover:block'>
-              <p className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện ảnh</p>
-              <p className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện tài liệu</p>
+            <div className='absolute flex-col min-w-48 bg-white right-0 top-10 hidden group-hover:flex'>
+              <a href="/library/photoLibrary"
+                className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện ảnh</a>
+              <a href="/library/documentLibrary"
+                className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện tài liệu</a>
             </div>
           </div>
         </div>
@@ -94,7 +102,7 @@ const Navigation = () => {
           <p className='text-sm hidden md:block'>Tiếng Việt</p>
           <FontAwesomeIcon icon={faAngleDown} className='h-3 w-3 translate-y-1.5' />
         </div>
-        {isVisible1 && (
+        {isVisibleLanguage && (
           <div className='absolute animate-drop-down right-[10px] lg:right-[50px] top-20 rounded-lg overflow-hidden bg-white'>
             <div className='flex pr-6 md:pr-20 pl-4 py-3  items-center hover:bg-[--primary-color] hover:text-white cursor-pointer'>
               <img src={FlagOfVietnam.src} alt="FlagOfVietnam" className='h-4 w-6 rounded' />
