@@ -1,10 +1,13 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GeckoLogo from '@/assets/Gecko.logo.webp'
 import FlagOfVietnam from '@/assets/flag-of-vietnam.webp'
 import FlagOfEnglish from '@/assets/flag-of-english.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 const Navigation = () => {
   // VisibleLanguage
   const [isVisibleLanguage, setIsVisibleLanguage] = useState(false);
@@ -15,17 +18,22 @@ const Navigation = () => {
   const [isVisibleNavShow, setIsVisibleNavShow] = useState(false);
   const fade = () => {
     setIsVisibleNavShow(true)
-  };
+  }
   const hide = () => {
     setIsVisibleNavShow(!isVisibleNavShow)
   };
+  //Fade menu
+  const [aminateFade, setAminateFade] = useState(false);
+  const animate = () => {
+    setAminateFade(!aminateFade)
+  }
   // VisibleNavLibrary
   const [isVisibleNavLibrary, setIsVisibleNavLibrary] = useState(false);
   const drop = () => {
     setIsVisibleNavLibrary(!isVisibleNavLibrary)
   };
-
-
+  // ActionPage
+  const currentPath = usePathname()
   return (
     <nav className='sticky shadow-md flex justify-between items-center h-24 px-3 top-0 z-50 bg-white select-none'>
       <FontAwesomeIcon icon={faBars} onClick={fade} className='lg:hidden flex h-8 justify-center cursor-pointer hover:text-[--primary-color]' />
@@ -35,11 +43,11 @@ const Navigation = () => {
           <div className=' absolute left-0 top-0 h-screen w-1/2 bg-white p-8 animate-fade-in'>
             <FontAwesomeIcon icon={faXmark} className=' text-3xl mb-10 hover:text-red-500 cursor-pointer' onClick={hide} />
             <div className=' flex flex-col'>
-              <a href="/" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Trang chủ</a>
-              <a href="/about" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Về chúng tôi</a>
-              <a href="/course" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Khóa học</a>
-              <a href="/contact" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Liên hệ</a>
-              <a href="/post" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Tin tức</a>
+              <Link href="/home" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Trang chủ</Link>
+              <Link href="/about" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Về chúng tôi</Link>
+              <Link href="/course" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Khóa học</Link>
+              <Link href="/contact" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Liên hệ</Link>
+              <Link href="/post" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Tin tức</Link>
               <div>
                 <div className='flex justify-between items-center' onClick={drop}>
                   <span className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-1'>Thư viện</span>
@@ -48,10 +56,10 @@ const Navigation = () => {
                 {isVisibleNavLibrary && (
                   <ul className='ml-4'>
                     <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
-                      <a href="/library/photoLibrary">Thư viện ảnh</a>
+                      <Link href="/library/photoLibrary">Thư viện ảnh</Link>
                     </li>
                     <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
-                      <a href="/library/documentLibrary">Thư viện tài liệu</a>
+                      <Link href="/library/documentLibrary">Thư viện tài liệu</Link>
                     </li>
                   </ul>
                 )}
@@ -61,35 +69,41 @@ const Navigation = () => {
         </div>
       )}
       <div className='flex flex-grow items-center justify-center'>
-        <a href="/" className=''>
+        <Link href="/">
           <img src={GeckoLogo.src} alt="Gecko Logo" className="h-12 xl:ml-10 lg:block object-contain" />
-        </a>
+        </Link>
         {/* Navigation full-screen */}
         <div className='hidden lg:flex gap-7 w-full items-center justify-end'>
-          <a href="/">
-            <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Trang chủ</div>
-          </a>
-          <a href="/about">
-            <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Về chúng tôi</div>
-          </a>
-          <a href="/course">
-            <div className={'cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'}>Khóa học</div>
-          </a>
-          <a href="/contact">
-            <div className='cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'>Liên hệ</div>
-          </a>
-          <a href="/post">
-            <div className='cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold'>Tin tức</div>
-          </a>
+          <Link href="/home">
+            <div className={`cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold 
+              ${currentPath === '/home' || currentPath === '/' ? 'text-[--primary-color]' : 'text-black'}`}>Trang chủ</div>
+          </Link>
+          <Link href="/about">
+            <div className={`cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold 
+              ${currentPath === '/about' ? 'text-[--primary-color]' : 'text-black'}`}>Về chúng tôi</div>
+          </Link>
+          <Link href="/course">
+            <div className={`cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold 
+              ${currentPath === '/course' ? 'text-[--primary-color]' : 'text-black'}`}>Khóa học</div>
+          </Link>
+          <Link href="/contact">
+            <div className={`cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold 
+              ${currentPath === '/contact' ? 'text-[--primary-color]' : 'text-black'}`}>Liên hệ</div>
+          </Link>
+          <Link href="/post">
+            <div className={`cursor-pointer hover:text-[--primary-color] relative gap-2 text-base font-semibold 
+              ${currentPath === '/post' ? 'text-[--primary-color]' : 'text-black'}`}>Tin tức</div>
+          </Link>
           <div className='cursor-pointer flex relative gap-2 text-base font-semibold group'>
-            <p className='group-hover:text-[--primary-color]'>Thư viện</p>
+            <p className={`group-hover:text-[--primary-color]
+              ${currentPath === '/library/photoLibrary'|| currentPath === '/library/documentLibrary' ? 'text-[--primary-color]' : 'text-black'}`}>Thư viện</p>
             <FontAwesomeIcon icon={faAngleDown} className='h-2 w-2 ml-1 translate-y-2' />
             <span className='absolute h-10 w-20 right-0'></span>
             <div className='absolute flex-col min-w-48 bg-white right-0 top-10 hidden group-hover:flex'>
-              <a href="/library/photoLibrary"
-                className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện ảnh</a>
-              <a href="/library/documentLibrary"
-                className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện tài liệu</a>
+              <Link href="/library/photoLibrary"
+                className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện ảnh</Link>
+              <Link href="/library/documentLibrary"
+                className='gap-2 p-3 z-10 text-sm font-[400] hover:bg-[--primary-color] hover:text-white'>Thư viện tài liệu</Link>
             </div>
           </div>
         </div>
