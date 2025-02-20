@@ -22,11 +22,6 @@ const Navigation = () => {
   const hide = () => {
     setIsVisibleNavShow(!isVisibleNavShow)
   };
-  //Fade menu
-  const [aminateFade, setAminateFade] = useState(false);
-  const animate = () => {
-    setAminateFade(!aminateFade)
-  }
   // VisibleNavLibrary
   const [isVisibleNavLibrary, setIsVisibleNavLibrary] = useState(false);
   const drop = () => {
@@ -39,27 +34,28 @@ const Navigation = () => {
       <FontAwesomeIcon icon={faBars} onClick={fade} className='lg:hidden flex h-8 justify-center cursor-pointer hover:text-[--primary-color]' />
       {/* Navigation mobile-screen */}
       {isVisibleNavShow && (
-        <div className=' absolute left-0 top-0 h-screen w-full bg-black/50'>
-          <div className=' absolute left-0 top-0 h-screen w-1/2 bg-white p-8 animate-fade-in'>
+        <div className=' absolute left-0 top-0 h-screen w-full lg:hidden  animate-fade-in'>
+          <div className=' absolute z-2000 right-0 top-0 h-screen bg-black/50 w-1/2' onClick={hide}></div>
+          <div className=' absolute left-0 top-0 h-screen w-1/2 bg-white p-8'>
             <FontAwesomeIcon icon={faXmark} className=' text-3xl mb-10 hover:text-red-500 cursor-pointer' onClick={hide} />
             <div className=' flex flex-col'>
-              <Link href="/home" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Trang chủ</Link>
-              <Link href="/about" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Về chúng tôi</Link>
-              <Link href="/course" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Khóa học</Link>
-              <Link href="/contact" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Liên hệ</Link>
-              <Link href="/post" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2'>Tin tức</Link>
+              <Link href="/home" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2' onClick={hide}>Trang chủ</Link>
+              <Link href="/about" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2' onClick={hide}>Về chúng tôi</Link>
+              <Link href="/course" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2' onClick={hide}>Khóa học</Link>
+              <Link href="/contact" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2' onClick={hide}>Liên hệ</Link>
+              <Link href="/post" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2' onClick={hide}>Tin tức</Link>
               <div>
                 <div className='flex justify-between items-center' onClick={drop}>
-                  <span className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-1'>Thư viện</span>
-                  <FontAwesomeIcon icon={faAngleDown} className=' text-sm' />
+                  <span className='text-lg font-semibold hover:text-[--primary-color] my-1'>Thư viện</span>
+                  <FontAwesomeIcon icon={faAngleDown} className={` text-sm items-center p-3 cursor-pointer ${isVisibleNavLibrary ? 'duration-100 rotate-180' : 'duration-100 rotate-0'}`}/>
                 </div>
                 {isVisibleNavLibrary && (
                   <ul className='ml-4'>
                     <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
-                      <Link href="/library/photoLibrary">Thư viện ảnh</Link>
+                      <Link href="/library/photoLibrary" onClick={hide}>Thư viện ảnh</Link>
                     </li>
                     <li className='hover:text-[--primary-color] cursor-pointer my-2 text-sm'>
-                      <Link href="/library/documentLibrary">Thư viện tài liệu</Link>
+                      <Link href="/library/documentLibrary" onClick={hide}>Thư viện tài liệu</Link>
                     </li>
                   </ul>
                 )}
@@ -109,7 +105,7 @@ const Navigation = () => {
         </div>
       </div>
       <div onClick={dropDown}>
-        <div className='relative flex bg-[--primary-color] text-white py-3 px-6 rounded-full gap-5 mx-0 w-[100px] md:w-[200px] lg:mx-10 cursor-pointer'>
+        <div className='relative z-100 flex bg-[--primary-color] text-white py-3 px-6 rounded-full gap-5 mx-0 w-[100px] md:w-[200px] lg:mx-10 cursor-pointer'>
           <img src={FlagOfVietnam.src} alt="FlagOfVietnam" className='rounded border h-6 w-8' />
           <p className='text-sm hidden md:block'>Tiếng Việt</p>
           <FontAwesomeIcon icon={faAngleDown} className='h-3 w-3 translate-y-1.5' />
