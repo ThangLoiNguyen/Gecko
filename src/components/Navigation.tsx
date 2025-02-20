@@ -34,8 +34,8 @@ const Navigation = () => {
       <FontAwesomeIcon icon={faBars} onClick={fade} className='lg:hidden flex h-8 justify-center cursor-pointer hover:text-[--primary-color]' />
       {/* Navigation mobile-screen */}
       {isVisibleNavShow && (
-        <div className=' absolute left-0 top-0 h-screen w-full lg:hidden  animate-fade-in'>
-          <div className=' absolute z-2000 right-0 top-0 h-screen bg-black/50 w-1/2' onClick={hide}></div>
+        <div className={` absolute left-0 top-0 h-screen w-full lg:hidden  ${isVisibleNavShow ? 'animate-fade-in' : 'animate-fade-out'}`}>
+          <div className=' absolute z-50 right-0 top-0 h-screen bg-black/50 w-1/2' onClick={hide}></div>
           <div className=' absolute left-0 top-0 h-screen w-1/2 bg-white p-8'>
             <FontAwesomeIcon icon={faXmark} className=' text-3xl mb-10 hover:text-red-500 cursor-pointer' onClick={hide} />
             <div className=' flex flex-col'>
@@ -105,7 +105,7 @@ const Navigation = () => {
         </div>
       </div>
       <div onClick={dropDown}>
-        <div className='relative z-100 flex bg-[--primary-color] text-white py-3 px-6 rounded-full gap-5 mx-0 w-[100px] md:w-[200px] lg:mx-10 cursor-pointer'>
+        <div className='relative flex bg-[--primary-color] text-white py-3 px-6 rounded-full gap-5 mx-0 w-[100px] md:w-[200px] lg:mx-10 cursor-pointer'>
           <img src={FlagOfVietnam.src} alt="FlagOfVietnam" className='rounded border h-6 w-8' />
           <p className='text-sm hidden md:block'>Tiếng Việt</p>
           <FontAwesomeIcon icon={faAngleDown} className='h-3 w-3 translate-y-1.5' />
