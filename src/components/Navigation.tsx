@@ -34,9 +34,9 @@ const Navigation = () => {
       <FontAwesomeIcon icon={faBars} onClick={fade} className='lg:hidden flex h-8 justify-center cursor-pointer hover:text-[--primary-color]' />
       {/* Navigation mobile-screen */}
       {isVisibleNavShow && (
-        <div className={` absolute z-50 left-0 top-0 h-screen w-full lg:hidden  ${isVisibleNavShow ? 'animate-fade-in' : 'animate-fade-out'}`}>
-          <div className=' absolute right-0 top-0 h-screen bg-black/50 w-1/2' onClick={hide}></div>
-          <div className=' absolute left-0 top-0 h-screen w-1/2 bg-white p-8'>
+        <div className={` absolute z-50 left-0 top-0 h-screen bg-black/50 w-full lg:hidden  ${isVisibleNavShow ? 'animate-fade-in' : 'animate-fade-out'}`}>
+          <div className=' absolute right-0 top-0 h-screen w-screen' onClick={hide}></div>
+          <div className=' absolute left-0 top-0 h-screen w-96 bg-white p-8'>
             <FontAwesomeIcon icon={faXmark} className=' text-3xl mb-10 hover:text-red-500 cursor-pointer' onClick={hide} />
             <div className=' flex flex-col'>
               <Link href="/home" className='text-lg font-semibold hover:text-[--primary-color] cursor-pointer my-2' onClick={hide}>Trang chủ</Link>
