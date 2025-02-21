@@ -1,5 +1,6 @@
 import React from 'react'
 import SlideBanner from '@/assets/slide_banner.webp'
+import Link from 'next/link'
 
 const Slider = () => {
   return (
@@ -13,7 +14,7 @@ const Slider = () => {
               <p className='text-white text-[400] text-[14pt] md:w-[600px] mt-8'>Chuyên đào tạo các khóa học tiếng Anh dành cho trẻ em, luyện thi IELTS...</p>
           </div>
           <div className='mt-8'>
-            <a href="/contact" className='text-white px-16 py-3 border rounded-full text-sm hover:bg-[--primary-color] hover:border-transparent'>Liên hệ</a>
+            <Link href="/contact" className='text-white px-16 py-3 border rounded-full text-sm hover:bg-[--primary-color] hover:border-transparent'>Liên hệ</Link>
           </div>
       </div>
     </div>

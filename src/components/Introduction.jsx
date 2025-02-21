@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'next/link'
 
 function Introduction({title, box, link}) {
   return (
@@ -14,7 +15,7 @@ function Introduction({title, box, link}) {
             <a href="/" className='text-white text-lg font-semibold hover:underline'>Trang chủ</a>
             <div>{box}</div>
             <span className='text-white mx-2'> / </span>
-            <a href='{link}' className='text-white text-lg font-semibold hover:underline'>{title}</a>
+            <Link href={link} className='text-white text-lg font-semibold hover:underline'>{title}</Link>
         </div>
       </div>
   )

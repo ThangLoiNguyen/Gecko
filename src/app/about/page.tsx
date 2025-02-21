@@ -6,12 +6,14 @@ import React from 'react'
 export default function AboutPage() {
   return (
     <div>
-      <Navigation/>
-      <Introduction 
-      title="Giới thiệu" 
-      box= ''
-      link="/about" />
-      <About/>
+      <Navigation />
+      <Introduction
+        title="Giới thiệu"
+        box=''
+        link="/about" />
+      <About
+        buttonAbout=''
+        />
     </div>
   )
 }
