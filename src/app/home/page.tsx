@@ -1,9 +1,11 @@
 import About from '@/components/About'
 import Navigation from '@/components/Navigation'
 import Slider from '@/components/Slider'
-import Review from '@/components/Review'
+import PostReview from '@/components/Review/Slide/PostReview'
+import CourseReview from '@/components/Review/Slide/CourseReview'
 import React from 'react'
 import Link from 'next/link'
+import Footer from '@/components/Footer'
 
 export default function HomePage() {
     return (
@@ -35,10 +37,17 @@ export default function HomePage() {
                     <span className='text-[--primary-color] text-gray-400 text-lg sm:text-xl'>Giảng viên</span>
                 </div>
             </div>
-            <Review
-            linkReview = '/course'
-            title = 'Khoá học phổ biến'
-            />
+            <div className='mb-20'>
+                <CourseReview
+                    linkReview={'/course'}
+                    title='Khoá học phổ biến'
+                />
+                <PostReview
+                    linkReview={'/post'}
+                    title='Tin tức nổi bật'
+                />
+            </div>
+            <Footer />
         </div>
     )
 }
