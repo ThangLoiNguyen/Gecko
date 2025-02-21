@@ -1,5 +1,5 @@
 'use client';
-import React, { use } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import SlideReview from '../SlideReview'
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -13,7 +13,7 @@ function CourseReview({ linkReview, title }) {
         <>
           <span className='items-center mb-2'>
             <Link href='/course'
-              className='bg-[--secondary-color] items-center rounded-md px-2 md:px-8 py-2 text-white uppercase text-base font-bold hover:bg-[--primary-color]'>
+              className='bg-[--secondary-color] items-center rounded-md px-8 py-2 text-white uppercase text-base font-bold hover:bg-[--primary-color]'>
               Course
             </Link>
           </span>
@@ -26,7 +26,7 @@ function CourseReview({ linkReview, title }) {
         <>
           <span className='items-center mb-2'>
             <Link href='/course'
-              className='bg-[--secondary-color] items-center rounded-md px-2 md:px-8 py-2 text-white uppercase text-base font-bold hover:bg-[--primary-color]'>
+              className='bg-[--secondary-color] items-center rounded-md px-8 py-2 text-white uppercase text-base font-bold hover:bg-[--primary-color]'>
               Course
             </Link>
           </span>
@@ -39,7 +39,7 @@ function CourseReview({ linkReview, title }) {
         <>
           <span className='items-center mb-2'>
             <Link href='/course'
-              className='bg-[--secondary-color] items-center rounded-md px-2 md:px-8 py-2 text-white uppercase text-base font-bold hover:bg-[--primary-color]'>
+              className='bg-[--secondary-color] items-center rounded-md px-8 py-2 text-white uppercase text-base font-bold hover:bg-[--primary-color]'>
               Course
             </Link>
           </span>
