@@ -69,13 +69,13 @@ export default function ContactPage() {
         </div>
 
         <div className='flex flex-col md:w-1/2 w-full gap-5'>
-          <span className='text-xl font-bold'>Đăng ký nhận tư vấn lộ trình học miễn phí</span>
+          <span className='text-xl font-bold mb-5'>Đăng ký nhận tư vấn lộ trình học miễn phí</span>
           <input type='text' placeholder='Họ và tên học sinh *' className='focus:border-[--primary-color] hover:border-[--primary-color] border rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-gray-400 duration-200'></input>
           <input type='text' placeholder='Ngày sinh *' className='focus:border-[--primary-color] hover:border-[--primary-color] border rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-gray-400 duration-200'></input>
           <input type='text' placeholder='Số điện thoại *' className='focus:border-[--primary-color] hover:border-[--primary-color] border rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-gray-400 duration-200'></input>
           <input type='text' placeholder='Email' className='focus:border-[--primary-color] hover:border-[--primary-color] border rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-gray-400 duration-200'></input>
           <input type='text' placeholder='Chọn trung tâm gần nhất' className='focus:border-[--primary-color] hover:border-[--primary-color] border rounded-full py-3 px-5 focus:outline-none focus:ring-2 focus:ring-gray-400 duration-200'></input>
-          <button className='rounded-full py-3 px-5 bg-[--primary-color] hover:bg-green-600 shadow-md shadow-gray-600 text-white font-bold'>Gửi thông tin</button>
+          <button className='mt-5 rounded-full py-3 px-5 bg-[--primary-color] hover:bg-green-600 shadow-md shadow-gray-600 text-white font-bold'>Gửi thông tin</button>
         </div>
       </div>
       <div className='mt-16'>
