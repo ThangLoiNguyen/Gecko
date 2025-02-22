@@ -3,11 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import Slider from 'react-slick'
 import SlideReview from '../SlideReview'
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { title } from 'process';
-import { div } from 'framer-motion/client';
 
 function CourseReview({ linkReview, titleCourse }) {
   var settings = {

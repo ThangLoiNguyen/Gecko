@@ -7,13 +7,11 @@ import React from 'react'
 export default function PostPage() {
   return (
     <div>
-      <div>
-        <Navigation />
-        <Introduction
-          title="Tin tức"
-          box=''
-          link="/post" />
-      </div>
+      <Navigation />
+      <Introduction
+        title="Tin tức"
+        box=''
+        link="/post" />
       <div className='-mt-24'>
         <PostReview
           linkReview=''

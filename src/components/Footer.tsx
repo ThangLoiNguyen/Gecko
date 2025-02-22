@@ -37,11 +37,21 @@ export default function Footer() {
                 </div>
                 <div className='flex flex-col gap-3 w-1/3 items-center'>
                     <span className='w-72 text-lg font-medium'>Danh mục</span>
-                    <Link href={"/home"} className='w-72 text-base hover:text-[--primary-color]'>Trang chủ</Link>
-                    <Link href={'/about'} className='w-72 text-base hover:text-[--primary-color]'>Về chúng tôi</Link>
-                    <Link href={'/course'} className='w-72 text-base hover:text-[--primary-color]'>Khóa học</Link>
-                    <Link href={'/contact'} className='w-72 text-base hover:text-[--primary-color]'>Liên Hệ</Link>
-                    <Link href={'/post'} className='w-72 text-base hover:text-[--primary-color]'>Tin tức</Link>
+                    <div className='w-72 text-base'>
+                        <Link href={"/home"} className=' hover:text-[--primary-color]'>Trang chủ</Link>
+                    </div>
+                    <div className='w-72 text-base'>
+                        <Link href={'/about'} className=' hover:text-[--primary-color]'>Về chúng tôi</Link>
+                    </div>
+                    <div className='w-72 text-base'>
+                        <Link href={'/course'} className=' hover:text-[--primary-color]'>Khóa học</Link>
+                    </div>
+                    <div className='w-72 text-base'>
+                        <Link href={'/contact'} className=' hover:text-[--primary-color]'>Liên Hệ</Link>
+                    </div>
+                    <div className='w-72 text-base'>
+                        <Link href={'/post'} className=' hover:text-[--primary-color]'>Tin tức</Link>
+                    </div>
                     <span className='w-72 text-base'>Thư viện</span>
                 </div>
             </div>

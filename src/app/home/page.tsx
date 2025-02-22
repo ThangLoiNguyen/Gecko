@@ -6,6 +6,7 @@ import CourseReview from '@/components/Review/Slide/CourseReview'
 import React from 'react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import TotalData from '@/components/TotalData'
 
 export default function HomePage() {
     return (
@@ -19,24 +20,7 @@ export default function HomePage() {
                     </>
                 }
             />
-            <div className='flex justify-around bg-[#f9f9f9] w-full py-10 md:px-16'>
-                <div className=' flex flex-col gap-2 items-center'>
-                    <span className='text-[--primary-color] font-bold text-3xl sm:text-5xl'>1010</span>
-                    <span className='text-[--primary-color] text-gray-400 text-lg sm:text-xl'>Học sinh</span>
-                </div>
-                <div className=' flex flex-col gap-2 items-center'>
-                    <span className='text-[--primary-color]  font-bold text-3xl sm:text-5xl'>12</span>
-                    <span className='text-[--primary-color] text-gray-400 text-lg sm:text-xl'>Khóa học</span>
-                </div>
-                <div className=' flex flex-col gap-2 items-center'>
-                    <span className='text-[--primary-color] font-bold text-3xl sm:text-5xl'>24</span>
-                    <span className='text-[--primary-color] text-gray-400 text-lg sm:text-xl'>Sự kiện</span>
-                </div>
-                <div className=' flex flex-col gap-2 items-center'>
-                    <span className='text-[--primary-color] font-bold text-3xl sm:text-5xl'>24</span>
-                    <span className='text-[--primary-color] text-gray-400 text-lg sm:text-xl'>Giảng viên</span>
-                </div>
-            </div>
+            <TotalData/>
             <div className='mb-20'>
                 <CourseReview
                     linkReview={'/course'}

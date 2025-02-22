@@ -7,13 +7,11 @@ import React from 'react'
 export default function CoursePage() {
   return (
     <div>
-      <div className='relative'>
-        <Navigation />
-        <Introduction
-          title="Khoá học"
-          box=''
-          link="/course" />
-      </div>
+      <Navigation />
+      <Introduction
+        title="Khoá học"
+        box=''
+        link="/course" />
       <div className='-mt-24 '>
         <CourseReview
           linkReview=''
@@ -21,7 +19,7 @@ export default function CoursePage() {
         />
       </div>
       <div className='mt-16'>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   )

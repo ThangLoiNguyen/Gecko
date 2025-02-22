@@ -71,7 +71,7 @@
 
 /* Slick dots */
 .slick-dots li button:before {
-  scale: 2.5;
+  font-size: 15px;
   margin-top: 30px;
 }
 .slick-dots li.slick-active button:before {
