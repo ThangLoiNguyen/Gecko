@@ -42,7 +42,7 @@ export default function Footer() {
                     <Link href={'/course'} className='w-72 text-base hover:text-[--primary-color]'>Khóa học</Link>
                     <Link href={'/contact'} className='w-72 text-base hover:text-[--primary-color]'>Liên Hệ</Link>
                     <Link href={'/post'} className='w-72 text-base hover:text-[--primary-color]'>Tin tức</Link>
-                    <span className='w-72 text-base hover:text-[--primary-color]'>Thư viện</span>
+                    <span className='w-72 text-base'>Thư viện</span>
                 </div>
             </div>
             <div className='flex flex-col gap-5 w-full lg:w-1/3'>

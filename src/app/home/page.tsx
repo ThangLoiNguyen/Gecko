@@ -40,11 +40,23 @@ export default function HomePage() {
             <div className='mb-20'>
                 <CourseReview
                     linkReview={'/course'}
-                    title='Khoá học phổ biến'
+                    titleCourse=
+                    {
+                        <>
+                            <span className='text-lg text-[--primary-color] font-bold uppercase sm:text-xl md:text-3xl'>Khoá học nổi bật</span>
+                            <span className='block h-1 w-40 bg-[--primary-color]'></span>
+                        </>
+                    }
                 />
                 <PostReview
                     linkReview={'/post'}
-                    title='Tin tức nổi bật'
+                    titlePost=
+                    {
+                        <>
+                            <span className='text-lg text-[--primary-color] font-bold uppercase sm:text-xl md:text-3xl'>Tin tức nổi bật</span>
+                            <span className='block h-1 w-40 bg-[--primary-color]'></span>
+                        </>
+                    }
                 />
             </div>
             <Footer />
